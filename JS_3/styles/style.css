@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(22, 23, 49);
+}
+
+nav{
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+nav .logo{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+nav .btns{
+    gap: 20px;
+}
+
+nav .btns #btn1{
+    width: 95px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background: green;
+    margin: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.9s ease-in-out;
+    font-weight: bold;
+}
+
+nav .btns #btn1:hover{
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    color: #fff;
+    background: transparent;
+}
+
+nav .btns #btn2{
+    width: 95px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background: red;
+    margin: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.9s ease-in-out;
+    font-weight: bold;
+}
+
+nav .btns #btn2:hover{
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    color: #fff;
+    background: transparent;
+}
+
+::placeholder{
+    color: #fff;
+    font-style: italic;
+}
+
+main{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+main .input-name{
+    margin: 20px;
+}
+
+main .input-name input{
+    width: 600px;
+    padding: 10px;
+    color: #fff;
+    margin: 10px;
+    height: 60px;
+    border: none;
+    outline: none;
+    background: transparent;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+main .input-quantity {
+    margin: 10px;
+}
+
+main .input-quantity input{
+    width: 600px;
+    padding: 10px;
+    color: #fff;
+    margin: 10px;
+    height: 60px;
+    border: none;
+    outline: none;
+    background: transparent;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.submit{
+    margin: 20px;
+}
+
+.submit button{
+    width: 400px;
+    height: 60px;
+    border-radius: 10px;
+    background: #fff;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.9s ease-in-out;
+}
+
+.submit button:hover{
+    border: 2px solid #fff;
+    color: #fff;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    background: transparent;
+}
+
+.cart{
+    text-align: center;
+    margin: 10px;
+}
+
+.cart h1{
+    color: #fff;
+    margin: 10px;
+    font-family: 'poppins';
+}
+
+#cartItems{
+    border: none;
+    display: block;
+    border-radius: 10px;
+    color: #fff;
+}
+
+#cartItems{
+    margin: 15px;
+}
+
+#cartItems span{
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+}
+
+#cartItems input{
+    border: none;
+    outline: none;
+    padding: 10px;
+    height: 25px;
+    margin: 10px;
+    background: transparent;
+    display: block;
+    margin-left: 849px;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+#cartItems button{
+    align-self: center;
+    margin: 10px;
+    margin-left: 45px;
+    height: 25px;
+    border: none;
+    outline: none;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    transition: 0.9s ease-in-out;
+    cursor: pointer;
+}
+
+#cartItems button:hover{
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.cart-item{
+    border: 2px solid #fff;
+    display: block;
+    border-radius: 10px;
+    margin: 5px;
+    color: #fff;
+}
+
+.footer{
+    display: none;
+}
+
+@media(max-width: 720px) {
+    .btns{
+        display: none;
+    }
+
+    main .input-name input{
+        width: 445px;
+    }
+
+    main .input-quantity input{
+        width: 445px;
+    }
+
+    .submit button{
+        width: 445px;
+    }
+
+    #cartItems input{
+        margin-left: 135px;
+    }
+
+    #cartItems button{
+        margin-left: 30px;
+    }
+
+    .footer{
+        display: inline;
+        margin: 25px;
+        text-align: center;
+        align-self: baseline;
+        color: #fff;
+        font-family: 'poppins';
+    }
+}

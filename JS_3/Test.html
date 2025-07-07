@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>What's my name: <b><span id="answer"></span></b></div>
+
+  <button onclick="myName()">Show Answer</button>
+
+  <script>
+    function myName() {
+      document.getElementById('answer').innerText='Caseay';
+    }
+
+
+    function greet(name, lName) {
+      console.log('hello ' + name + ' ' + lName);
+    }
+
+    greet('Caseay', 'Off.');
+
+    // Scope examples with explanations:
+
+    // 1. Global scope
+    // Variables declared outside any function or block are global.
+    // They can be accessed from anywhere in your code.
+    var globalVar = 'I am global';
+    function showGlobal() {
+      // globalVar is accessible here
+      console.log('Global scope:', globalVar);
+    }
+    showGlobal();
+    // globalVar is also accessible here
+    console.log('Global scope (outside function):', globalVar);
+
+    // 2. Function scope
+    // Variables declared with var, let, or const inside a function are only accessible within that function.
+    // They cannot be accessed from outside the function.
+    function functionScopeExample() {
+      var localVar = 'I am local to this function (var)';
+      let localLet = 'I am also local (let)';
+      const localConst = 'Me too! (const)';
+      console.log('Function scope (var):', localVar); // Accessible here
+      console.log('Function scope (let):', localLet); // Accessible here
+      console.log('Function scope (const):', localConst); // Accessible here
+    }
+    functionScopeExample();
+    // The following lines would all cause errors if uncommented, because these variables are not visible outside the function:
+    // console.log(localVar);
+    // console.log(localLet);
+    // console.log(localConst);
+
+    // Example: function parameters are also function-scoped
+    function add(a, b) {
+      // a and b are only accessible inside this function
+      return a + b;
+    }
+    console.log('Add result:', add(2, 3));
+
+    // 3. Block scope (let/const)
+    // Variables declared with let or const inside a block (like if, for, while) are only accessible within that block.
+    if (true) {
+      let blockVar = 'I am block scoped';
+      const blockConst = 'Me too!';
+      console.log('Block scope:', blockVar); // Accessible here
+      console.log('Block scope:', blockConst); // Accessible here
+    }
+    // console.log(blockVar); // This would cause an error because blockVar is not visible outside the block
+    // console.log(blockConst); // This would cause an error because blockConst is not visible outside the block
+  </script>
+</body>
+</html>

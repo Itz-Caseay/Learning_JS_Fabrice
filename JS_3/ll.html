@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>School</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Students</a>
+    <a href="#">Teachers</a>
+    <a href="#">Classes</a>
+    <a href="#">Attendance</a>
+    <a href="#">Settings</a>
+  </div>
+  <div class="main">
+    <div class="header">
+      <h1>Dashboard</h1>
+      <div id="date"></div>
+    </div>
+    <div class="dashboard-cards">
+      <div class="card">
+        <div class="icon">🎓</div>
+        <div class="number" id="students">0</div>
+        <div class="label">Students</div>
+      </div>
+      <div class="card">
+        <div class="icon">👩‍🏫</div>
+        <div class="number" id="teachers">0</div>
+        <div class="label">Teachers</div>
+      </div>
+      <div class="card">
+        <div class="icon">🏫</div>
+        <div class="number" id="classes">0</div>
+        <div class="label">Classes</div>
+      </div>
+      <div class="card">
+        <div class="icon">📅</div>
+        <div class="number" id="attendance">0%</div>
+        <div class="label">Attendance</div>
+      </div>
+    </div>
+  </div>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6fb;
+      color: #222;
+    }
+    .sidebar {
+      width: 220px;
+      background: #2d3e50;
+      color: #fff;
+      height: 100vh;
+      position: fixed;
+      top: 0; left: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 0;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.5em;
+      letter-spacing: 2px;
+    }
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 32px;
+      display: block;
+      transition: background 0.2s;
+    }
+    .sidebar a:hover {
+      background: #1a2533;
+    }
+    .main {
+      margin-left: 220px;
+      padding: 32px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+    .card .icon {
+      font-size: 2.5em;
+      margin-bottom: 12px;
+      color: #3498db;
+    }
+    .card .number {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .card .label {
+      font-size: 1.1em;
+      color: #555;
+    }
+    @media (max-width: 700px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 12px 0;
+      }
+      .main {
+        margin-left: 0;
+        padding: 16px;
+      }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
+  <script>
+    // Example: Animate numbers
+    function animateValue(id, start, end, duration, suffix = '') {
+      let range = end - start;
+      let current = start;
+      let increment = end > start ? 1 : -1;
+      let stepTime = Math.abs(Math.floor(duration / range));
+      const obj = document.getElementById(id);
+      function step() {
+        current += increment;
+        obj.textContent = current + suffix;
+        if ((increment > 0 && current < end) || (increment < 0 && current > end)) {
+          setTimeout(step, stepTime);
+        } else {
+          obj.textContent = end + suffix;
+        }
+      }
+      step();
+    }
+    animateValue('students', 0, 520, 1000);
+    animateValue('teachers', 0, 38, 1000);
+    animateValue('classes', 0, 24, 1000);
+    animateValue('attendance', 0, 96, 1000, '%');
+    // Show today's date
+    document.getElementById('date').textContent = new Date().toLocaleDateString();
+  </script>
+</body>
+</html>

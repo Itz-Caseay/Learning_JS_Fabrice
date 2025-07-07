@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA_Cart | For Shopping</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">&bull;<span style="color: red;">CA</span>_Cart</div>
+        <div class="btns">
+            <button id="btn1" class="btn">+ Create</button>
+            <button id="btn2" class="btn">- Delete</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="input-name">
+            <input type="text" id="productName" placeholder="Product Name" />
+        </div>
+        <div class="input-quantity">
+            <input type="number" id="productQty" placeholder="Quantity" min="1"/>
+        </div>
+
+        <div class="submit">
+            <button onclick="addToCart()">Save Cart</button>
+        </div>
+    </main>
+    <div class="cart">
+        <h1>SHOPPING - CART</h1>
+        <div id="cartItems"></div>
+    </div>
+
+    <footer class="footer">
+        <p>Copyrighted &copy; ca_studio_design. 2025</p>
+    </footer>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

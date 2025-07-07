@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>My First Function</h2>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+<p id="demo"></p>
+
+</body>
+
+<button type="button" onclick="press()">Click to see time</button>
+
+<p id="time"></p>
+
+<script>
+    function press() {
+        document.getElementById('time').innerHTML = Date();
+    }
+</script>
+</html> 
