@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A new web page">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="assets/images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+    <title>Ticket Generator</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" async></script>
+</head>
+<body>
+        <!-- Start building your page here -->
+    <h3><img src="./assets/images/logo-mark.svg"> <span>Coding Conf</span></h3>
+    <h2>Your Journey to Coding Conf 2025 Starts Here!</h2>
+    <p>
+        Secure your spot at next year's biggest coding conference.
+    </p>
+    <div class="header">Upload Avatar</div>
+    <div class="img-input">
+        <div class="overlay">
+            <img src="assets/images/icon-upload.svg" id="profilePicPreview">
+            <input type="file" accept="image/*" id="profilePicInput">
+        </div>
+    </div>
+        <div class="inputs">
+          <label for="full_name">Full Name</label>
+            <input type="text" placeholder="">
+            <label for="email">EmailAddress</label>
+            <input type="email" placeholder="example@gmail.com">
+            <label for="github">GithubUsername</label>
+            <input type="text" placeholder="@username">
+        </div>
+        <button type="button">Generate My Ticket</button>
+</body>
+</html>

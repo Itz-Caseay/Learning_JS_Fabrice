@@ -1,0 +1,274 @@
+@media (max-width: 720px){
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-image: url(assets/images/background-mobile.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+        font-family: "Inconsolata", sans-serif;
+      text-align: center;
+    }
+    h3{
+      margin: 10px;
+      color: hsl(0, 0%, 100%);
+      text-align: center;
+      justify-content: center;
+        font-family: "Inconsolata", sans-serif;
+      display: flex;
+      gap: 10px;
+    }
+    h3 img{
+      width: 25px;
+      height: 25px;
+      margin-top: 5px;
+    }
+    h3 span{
+      margin-top: 10px;
+      display: flex;
+    }
+    h2{
+      color: hsl(0, 0%, 100%);
+      font-size: 40px;
+      margin: 20px;
+      margin-top: 40px;
+    }
+    p{
+      color: hsl(245, 15%, 58%);
+      font-family: 'poppins' sans-serif;
+      font-size: 35px;
+    }
+    .header{
+      display: flex;
+      margin: 20px;
+      margin-top: 40px;
+      margin-left: 30px;
+      font-size: 20px;
+      color: hsl(0, 0%, 100%);
+    }
+    .img-input{
+      width: 85%;
+      height: 150px;
+      border: 2px dashed #fff;
+      justify-self: center;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .img-input .overlay{
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 347px;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      text-align: center;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      display: block;
+      align-content: center;
+      border-radius: 10px;
+    }
+    .img-input .overlay img{
+      display: flex;
+      width: 45px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.5);
+      margin-top: 45px;
+      height: 45px;
+    }
+    .img-input .overlay input{
+      display: flex;
+      margin: 20px;
+      width: 347px;
+      line-height: 50px;
+      background: transparent;
+      color: transparent;
+      opacity: 0%;
+    }
+  .inputs{
+    width: 100%;
+    display: block;
+    margin: 15px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    line-height: 10px;
+    justify-content: center;
+    gap: 10px;
+  }
+  .inputs label{
+    color: hsl(0, 0%, 100%);
+    margin: 10px;
+    display: flex;
+    padding: 10px;
+    width: 100px;
+    margin-right: 300px;
+  }
+  .inputs input{
+    width: 85%;
+    height: 50px;
+    margin: 10px;
+    display: flex;
+    margin-right: 35px;
+    border-radius: 10px;
+    border: 1px solid hsl(0, 0%, 100%);
+    background: rgba(255,255,255,0.1);
+    outline: none;
+    cursor: pointer;
+  }
+  ::placeholder{
+    margin-left: px;
+  }
+  button{
+    width: 85%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: hsl(7, 88%, 67%);
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 375px){
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-image: url(assets/images/background-mobile.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+        font-family: "Inconsolata", sans-serif;
+      text-align: center;
+    }
+    h3{
+      margin: 10px;
+      color: hsl(0, 0%, 100%);
+      text-align: center;
+      justify-content: center;
+        font-family: "Inconsolata", sans-serif;
+      display: flex;
+      gap: 10px;
+    }
+    h3 img{
+      width: 25px;
+      height: 25px;
+      margin-top: 5px;
+    }
+    h3 span{
+      margin-top: 10px;
+      display: flex;
+    }
+    h2{
+      color: hsl(0, 0%, 100%);
+      font-size: 40px;
+      margin: 20px;
+      margin-top: 40px;
+    }
+    p{
+      color: hsl(245, 15%, 58%);
+      font-family: 'poppins' sans-serif;
+      font-size: 35px;
+    }
+    .header{
+      display: flex;
+      margin: 20px;
+      margin-top: 40px;
+      margin-left: 30px;
+      font-size: 20px;
+      color: hsl(0, 0%, 100%);
+    }
+    .img-input{
+      width: 85%;
+      height: 150px;
+      border: 2px dashed #fff;
+      justify-self: center;
+      border-radius: 10px;
+      margin: 10px;
+    }
+    .img-input .overlay{
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 347px;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      text-align: center;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      display: block;
+      align-content: center;
+      border-radius: 10px;
+    }
+    .img-input .overlay img{
+      display: flex;
+      width: 45px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.5);
+      margin-top: 45px;
+      height: 45px;
+    }
+    .img-input .overlay input{
+      display: flex;
+      margin: 20px;
+      width: 347px;
+      line-height: 50px;
+      background: transparent;
+      color: transparent;
+      opacity: 0%;
+    }
+  .inputs{
+    width: 100%;
+    display: block;
+    margin: 15px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    line-height: 10px;
+    justify-content: center;
+    gap: 10px;
+  }
+  .inputs label{
+    color: hsl(0, 0%, 100%);
+    margin: 10px;
+    display: flex;
+    padding: 10px;
+    width: 100px;
+    margin-right: 300px;
+  }
+  .inputs input{
+    width: 85%;
+    height: 50px;
+    margin: 10px;
+    display: flex;
+    margin-right: 35px;
+    border-radius: 10px;
+    border: 1px solid hsl(0, 0%, 100%);
+    background: rgba(255,255,255,0.1);
+    outline: none;
+  }
+  ::placeholder{
+    margin-left: px;
+  }
+  button{
+    width: 85%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: hsl(7, 88%, 67%);
+    font-weight: 500;
+  }
+}
