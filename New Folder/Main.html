@@ -13,8 +13,9 @@
     <title>Ticket Generator</title>
     <link rel="stylesheet" href="main.css">
     <script src="main.js" async></script>
+    <script src="generate.js" async></script>
 </head>
-<body>
+<body id="ticketsContainer">
         <!-- Start building your page here -->
     <h3><img src="./assets/images/logo-mark.svg"> <span>Coding Conf</span></h3>
     <h2>Your Journey to Coding Conf 2025 Starts Here!</h2>
@@ -30,12 +31,12 @@
     </div>
         <div class="inputs">
           <label for="full_name">Full Name</label>
-            <input type="text" placeholder="">
+            <input type="text" placeholder="" required>
             <label for="email">EmailAddress</label>
-            <input type="email" placeholder="example@gmail.com">
+            <input type="email" placeholder="example@gmail.com" required>
             <label for="github">GithubUsername</label>
-            <input type="text" placeholder="@username">
+            <input type="text" placeholder="@username" required>
         </div>
-        <button type="button">Generate My Ticket</button>
+        <button onclick="generateTicket()" type="button">Generate My Ticket</button>
 </body>
 </html>
