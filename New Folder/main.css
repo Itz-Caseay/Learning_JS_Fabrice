@@ -226,7 +226,6 @@
       height: 100vh;
       font-family: "Inconsolata", sans-serif;
       text-align: center;
-      overflow: hidden;
     }
     h3{
       margin: 10px;
@@ -248,7 +247,7 @@
     }
     h2{
       color: hsl(0, 0%, 100%);
-      font-size: 40px;
+      font-size: 25px;
       margin: 20px;
       margin-top: 40px;
     }
@@ -330,11 +329,13 @@
     height: 50px;
     margin: 10px;
     display: flex;
-    margin-right: 35px;
+    margin-right: 20px;
+    color: #fff;
     border-radius: 10px;
     border: 1px solid hsl(0, 0%, 100%);
     background: rgba(255,255,255,0.1);
     outline: none;
+    padding: 10px;
     cursor: pointer;
   }
   ::placeholder{
@@ -377,8 +378,8 @@
       gap: 10px;
     }
     h3 img{
-      width: 25px;
-      height: 25px;
+      height: 105px;
+      width: 150px;
       margin-top: 5px;
     }
     h3 span{
