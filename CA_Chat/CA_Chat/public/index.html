@@ -4,30 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CA_Chat</title>
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <!--User Profile section-->
     <div class="left">
         <img src="assets/user_default_profile.jpeg" alt="user_profile">
-        <h2>Username</h2>
+        <h2 id="username">Username</h2>
         <P>Logout</P>
     </div>
     <!--Chatting section-->
     <div class="right">
         <!--sent message-->
-        <div class="sent">
-            <div class="me">Y0! Dude wassup?</div>
+        <div class="sent" id="messages">
             <div class="other">I'm cool Dude and U?</div>
         </div>
         <!--text area-->
-        <div class="send">
-            <input type="file" name="" id="" accept="image/*,video/*,audio/*" placeholder="">
-            <textarea placeholder="Type your message here..."></textarea>
-            <button type="submit" onclick="send()">Send</button>
-        </div>
+        <form class="send" id="chat-form">
+            <!--<input type="file" name="" id="" accept="image/*,video/*,audio/*" placeholder="">-->
+            <input type="text" autocomplete="off" placeholder="Type your message here..." id="msg">
+            <button type="submit" id="send-button">Send</button>
+        </form>
     </div>
 </body>
-<script src="scripts/script.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
 </html>

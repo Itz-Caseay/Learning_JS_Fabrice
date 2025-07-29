@@ -6,6 +6,8 @@
 
 body{
     display: flex;
+    position: sticky;
+    overflow: hidden;
 }
 
 .left{
@@ -14,6 +16,7 @@ body{
     background: rgb(22, 23, 49);
     text-align: center;
     display: block;
+    overflow: hidden;
 }
 
 .left img{
@@ -40,7 +43,7 @@ body{
 }
 
 .right{
-    width: 82%;
+    width: 80%;
     height: 100vh;
     background: rgb(255, 255, 255);
     display: block;
@@ -69,7 +72,7 @@ body{
     justify-items: center;
 }
 
-.right .send textarea{
+.right .send input{
     width: 75%;
     height: 40px;
     border-radius: 20px;
@@ -105,18 +108,7 @@ body{
     border: 2px solid rgb(22, 23, 49);
 }
 
-.right .send input{
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
-    border: none;
-    background: rgb(22, 23, 49);
-    color: white;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.right .sent .me{
+.right .sent span{
     width: 30%;
     height: 40px;
     display: flex;
@@ -166,6 +158,6 @@ body{
         margin-left: 270px;
     }
     .send{
-        position: fixed;align-self: 
+        position: fixed;
     }
 }
