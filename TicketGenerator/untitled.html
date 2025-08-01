@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A new web page">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="favicon.ico">
+    <title>Document</title>
+</head>
+<body>
+         <input type="number" id="input-radius">
+         <button id="btn">Calculate area</button>
+         <p id="paragraph"></p>
+</body>
+<script>
+  console.log(prompt('Whats your name?'))
+  function cirleArea(){
+    const radius = document.getElementById('input-radius');
+    const area = document.getElementById('btn')
+    const answer = document.getElementById('paragraph')
+    
+    answer.textContent = `Your answer is: ${Math.floor(1+Math.PI*radius.value*radius.value)}`;
+  };
+</script>
+</html>
