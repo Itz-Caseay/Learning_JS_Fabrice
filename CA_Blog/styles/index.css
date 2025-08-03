@@ -64,11 +64,18 @@ a:hover{
 /*h2{
   color: #8b0000;
 }*/
+
 section{
   padding-top: 130px;
   width: 80%;
   display: flex;
   justify-content: space-between;
+}
+section#home{
+  display: block;
+}
+.blog-item{
+  display: flex;
 }
 
 section .img{
@@ -139,30 +146,41 @@ section .info{
   }
 }
 
-section .input{
+section form{
+  display: inline-block;
+}
+
+section form .input{
   width: 45%;
   height: 100%;
   display: block;
 }
 
-section .input img{
+section form .input img{
   width: 100%;
   height: 440px;
   margin-left: 40px;
 }
 
-section .input input{
+section form .input input{
   width: 100%;
   padding: 20px;
   margin-left: 40px;
   background-color: transparent;
 }
+form .holder{
+  display: flex;
+}
 
-.inputs h2{
+form .inputs{
+  display: block;
+}
+
+form .inputs h2{
   color: #8b0000;
 }
 
-.inputs input{
+form .inputs input{
   width: 400px;
   padding: 20px;
   margin: 10px;
@@ -172,7 +190,7 @@ section .input input{
   color: #8b0000;
   font-weight: 900;
 }
-.inputs button{
+form .inputs button{
   padding: 10px;
     background: #8b0000;
     width: 130px;
@@ -186,7 +204,7 @@ section .input input{
     margin-top: 40px;
     transition: .5s ease-in-out;
 }
-.inputs .note{
+form .inputs .note{
   height: 150px;
 }
 ::placeholder{

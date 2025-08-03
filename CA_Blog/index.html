@@ -23,6 +23,7 @@
     </div>
   </nav>
   <section id="home">
+    <div class="blog-item">
     <div class="img">
       <img src="./assets/background.png" alt="main image">
     </div>
@@ -38,10 +39,11 @@
         <img src="./assets/background.png" alt="user profile"><span>Caseay_off</span>
       </div>
       <div class="btn">See more</div>
+    </div>
     </div>
   </section>
 
-  <section id="blog">
+  <!-- <section id="blog">
     <div class="img">
       <img src="./assets/background.png" alt="main image">
     </div>
@@ -58,38 +60,44 @@
       </div>
       <div class="btn">See more</div>
     </div>
-  </section>
+  </section> -->
+
+  <!-- <section id="post">
+    <form action="" method="post">
+      <div class="holder"></div>
+    </form>
+  </section> -->
 
   <section id="post">
-    <div class="input">
-      <img src="./assets/pic4.jpeg" alt="user image holder" id="profilePicPreview"">
-      <input type="file" accept="image/*" id="profilePicInput">
+    <form action="" method="post" id="blog-form">
+    <div class="holder">
+      <div class="input">
+        <img src="./assets/pic4.jpeg" alt="user image holder" id="profilePicPreview">
+        <input type="file" accept="image/*" id="profilePicInput">
+      </div>
+      <div class="inputs">
+          <h2>Show case your Nightmare</h2>
+          <input type="text" placeholder="Define Your Nightmare.." id="title" required>
+          <input type="text" class="note" placeholder="Be More Explicit On Your Nightmare.." id="description" required>
+          <button class="btn" type="submit">Upload</button>
+      </div>
     </div>
-    <div class="inputs">
-      <form action="" method="post">
-        <h2>Show case your Nightmare</h2>
-        <input type="text" placeholder="Define Your Nightmare.." required>
-        <input type="text" class="note" placeholder="Be More Explicit On Your Nightmare.." required>
-        <button class="btn" type="submit">Upload</button>
-      </form>
-    </div>
+  </form>
   </section>
   
 
-  <section id="contact">
+  <!-- <section id="contact">
     <div class="input">
       <img src="./assets/pic1.jpg" alt="user image holder">
     </div>
     <div class="inputs">
-      <form action="" method="post">
         <h2>Contact US For More</h2>
         <input type="text" placeholder="Username.." required>
         <input type="email" placeholder="Email Address.." required>
         <input type="tel" placeholder="Phone Address(Optional)" id="">
         <center><button class="chat" type="submit">Upload</button></center>
-      </form>
     </div>
-  </section>
+  </section> -->
 </body>
 <script src="./scripts/index.js"></script>
 <script>
