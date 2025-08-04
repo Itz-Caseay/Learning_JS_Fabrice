@@ -1,0 +1,93 @@
+body{
+  background: #fff;
+  text-align: center;
+  font-family: Arial;
+}
+
+.header{
+  text-align: center;
+  margin-top: 60px;
+}
+
+h1{
+  text-align: center;
+  justify-content: center;
+}
+
+.underline{
+  background: skyblue;
+  height: 6px;
+  width: 80px;
+  border-radius: 30px;
+  margin-top: 5px;
+  border: none;
+}
+
+form{
+  width: 100%;
+  background: skyblue;
+  margin-top: 50px;
+  height: 625px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+form input{
+  width: 80%;
+  height: 50px;
+  margin-top: 60px;
+  border: none;
+  outline: none;
+  background: #fff;
+  font-weight: bold;
+}
+
+.forgot{
+  margin-left: 130px;
+  font-size: 15px;
+  margin-top: 14px;
+  font-weight: bold;
+}
+
+.forgot span{
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button{
+  width: 80%;
+  height: 50px;
+  margin-top: 40px;
+  border: none;
+  outline: none;
+  background: #fff;
+  color: skyblue;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+  transition: .9s ease-in-out;
+}
+
+form button:hover{
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+form .terms{
+  color: black;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+form .footer{
+  margin-top: 115px;
+  text-align: center;
+}
+
+form .footer p{
+  font-weight: bold;
+}

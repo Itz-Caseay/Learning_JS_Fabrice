@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HomeWay - Home</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/reserve.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="menu" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <div class="links" id="navLinks">
+        <img src="assets/location.jpg" height="50" width="50">
+        <h4>Username</h4>
+        <a href="index.html">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Reserved</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+        <a href="register/login.html"><button type="submit" class="btn">Login</button></a>
+        
+        <footer class="footer">
+          Copyright &copy; Home <span>Way</span> rights reserved 2025
+        </footer>
+      </div>
+    </div>
+    <div class="logo">
+      Home<span style="color: skyblue">Way</span>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <center><div class="container">
+    <div class="header"><h1>Radisson <span style="color: white;">Hotel</span></h1></div>
+    <img src="assets/hilton.jpg">
+    <div class="details">
+      <div class="btns">
+        <button type="submit">Reserve</button>
+      </div>
+      <div class="located">
+         <img src="assets/location.jpg"> <i>Buea, 400,000XAF /M</i>
+      </div>
+    </div>
+  </div></center>
+  <center><div class="container">
+    <div class="header"><h1>Crystal <span style="color: white;">Palace</span></h1></div>
+    <img src="assets/hilton.jpg">
+    <div class="details">
+      <div class="btns">
+        <button type="submit">Reserve</button>
+      </div>
+      <div class="located">
+         <img src="assets/location.jpg"> <i>Douala, 500,000XAF /M</i>
+      </div>
+  </div></center>
+  <center><div class="container">
+    <div class="header"><h1>Marriott <span style="color: white;">Hotel</span></h1></div>
+    <img src="assets/hilton.jpg">
+    <div class="details">
+      <div class="btns">
+        <button type="submit">Reserve</button>
+      </div>
+      <div class="located">
+         <img src="assets/location.jpg"> <i>Yaoundé, 450,000XAF /M</i>
+      </div>
+    </div></center>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

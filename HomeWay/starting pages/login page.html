@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login page.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body >
+    <div class="logo">
+        <img src="../tc-energy-seeklogo.png">
+    </div>
+      
+       
+    
+  <div class="login-box">
+    <div class="login-header">
+        <header>connectez-vous</header>
+    </div>
+    <div class="topic">
+    Reconnectez vous a votre compte 
+</div>
+<form  id="loginForm"action="/login" method="post">
+    <div class="input-header">
+        numero de telephone
+    </div>
+    <div class="input-box">
+        <input type="number" class="input-field" placeholder=" entrer votre numero de telephone" autocomplete="off" name="numero"required>
+       
+    </div>
+    <div class="input-header">
+        mot de passe
+    </div>
+    <div class="input-box">
+        <input type="password" class="input-field" placeholder=" entrer votre mot de passe" autocomplete="off" name="password" required>
+        
+    </div>
+    <div class="forgot">
+        <section>
+            <input type="checkbox" id="check">
+            <label for="check">se rappeler</label>
+        </section>
+        <section>
+            <a href="#">mot de passe oublie</a>
+        </section>
+    </div>
+    <div class="input-submit">
+        <form action="/home" method="get">
+        <button class="submit-btn"  type="submit">se connecter</button>
+    </form>
+</form>
+       
+    </div>
+    <div class="sign-up-link">
+        <p> Pas encore de compte? <a href="/register">s'inscrire</a></p>
+    </div>
+  </div>
+  <style>
+    .login-header header{
+        font-family: 'Roboto',sans-serif;
+        font-size: 35px;
+        font-weight: 500;
+    }
+    *{
+        font-family: 'Roboto',sans-serif;
+    }
+  </style>
+ <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("loginForm");
+  
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // ⛔ prevent page reload
+  
+        const numero = form.numero.value;
+        const password = form.password.value;
+  
+        try {
+          const response = await fetch("/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ numero, password })
+          });
+  
+          const result = await response.json();
+          
+          if (result.success) {
+            // ✅ Login successful → redirect
+            console.log(result)
+            localStorage.setItem("numero", result.numero);
+            window.location.href = "/home";
+          } else {
+            // ⚠️ Show popup with error message
+            alert(result.message); // <-- This should show "Mot de passe incorrect"
+          }
+        } catch (error) {
+          console.error("Erreur:", error);
+          alert("Une erreur s'est produite.");
+        }
+      });
+    });
+   </script>
+  
+  
+
+
+    
+    
+    
+</body>
+</html>

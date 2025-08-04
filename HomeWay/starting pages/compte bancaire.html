@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lier une carte Bancaire</title>
+    <link rel="stylesheet" href="./compte bancaire.css">
+</head>
+<body>
+  <form id="cardForm">
+    <div id="page1" class="container">
+        <h2> Lier une carte Bancaire </h2>
+        <label>Banque</label>
+        <input list="banks" id="bank" name="bank" placeholder="choississez ou saisissez une banque">
+        <datalist id="banks">
+            <option value="orange">Orange CM</option>
+            <option value="MTN">MTN CM</option>
+        </datalist>
+        <label>Nom du titulaire </label>
+        <input type="text" id="holder" placeholder="Entrez Le Nom">
+        <label>Compte Bancaire</label>
+        
+        <input type="tel" id="account" placeholder="Numero de compte">
+        <button type="submit">Confirmer</button>
+        
+    </div>
+    <div id="page2" class="container hidden">
+        <h2>Liste des Comptes Bancaires</h2>
+        <div id="accountDetails">
+            <p><strong>Banque :</strong> <span id="bankDisplay"></span></p>
+            <p><strong>Nom :</strong> <span id="holderDisplay"></span></p>
+            <p><strong>Compte :</strong> <span id="accountDisplay"></span></p>
+        </div>
+        <form action="/home" method="get">
+        <button>Retour</button>
+        </form>
+        <button class="delete-btn" onclick="deletedata()">Supprimer</button>
+    </div>
+    </form>
+</body>
+<script>
+ /* document.getElementById("cardForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    
+  
+    async function fetchCardData() {
+      try {
+        const response = await fetch(`/get-card/${numero}`);
+        const result = await response.json();
+        
+        if (result.success) {
+          // Display card data if found
+          const { banque, titulaire, compte } = result.data;
+          document.getElementById("bankDisplay").textContent = banque;
+          document.getElementById("holderDisplay").textContent = titulaire;
+          document.getElementById("accountDisplay").textContent = compte;
+          
+          // Hide page1 and show page2 (the card details page)
+          document.getElementById("page1").classList.add("hidden");
+          document.getElementById("page2").classList.remove("hidden");
+        }
+      } catch (err) {
+        console.error("Erreur lors de la récupération des données :", err);
+      }
+    }*/
+    document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("cardForm");
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const bank = document.getElementById("bank").value;
+    const holder = document.getElementById("holder").value;
+    const account = document.getElementById("account").value;
+    const numero = localStorage.getItem("numero");
+
+    console.log("Form data:", { bank, holder, account, numero }); // ✅ Debug
+
+    if (!bank || !holder || !account || !numero) {
+      alert("Veuillez remplir tous les champs.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/save-card", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ numero:numero, banque: bank, titulaire: holder, compte: account }),
+      });
+
+      const result = await response.json();
+      console.log("Server response:", result); // ✅ Debug
+
+      if (result.success) {
+        alert("Carte enregistrée avec succès !");
+        document.getElementById("bankDisplay").textContent = bank;
+        document.getElementById("holderDisplay").textContent = holder;
+        document.getElementById("accountDisplay").textContent = account;
+        document.getElementById("page1").classList.add("hidden");
+        document.getElementById("page2").classList.remove("hidden");
+      } else {
+        alert("Erreur lors de l'enregistrement : " + result.message);
+      }
+    } catch (err) {
+      console.error("Erreur fetch:", err);
+      alert("Une erreur est survenue.");
+    }
+  });
+});
+      
+    
+  
+    function goBack() {
+      document.getElementById("page2").classList.add("hidden");
+      document.getElementById("page1").classList.remove("hidden");
+    }
+  
+    function deletedata() {
+      // Clear card data on the display (if deleting)
+      document.getElementById("bankDisplay").textContent = "";
+      document.getElementById("holderDisplay").textContent = "";
+      document.getElementById("accountDisplay").textContent = "";
+      goBack();
+    }
+  </script>
+  
+    
+
+</html>

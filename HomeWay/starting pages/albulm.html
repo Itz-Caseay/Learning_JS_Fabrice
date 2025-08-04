@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./albulm.css" rel="stylesheet">
+</head>
+<body>
+    <div class="cart-container">
+        <header>
+            <a href="/home" class="back-button"><</a>
+            <h1> Mes Transaction</h1>
+            <div id="transactionList"></div>
+        </header>
+        </div>
+
+        
+            
+          
+            <script>
+              const numero = localStorage.getItem("numero");
+          
+              async function loadTransactions() {
+                const response = await fetch(`/get-transactions/${numero}`);
+                const result = await response.json();
+                if (result.success) {
+                  const list = document.getElementById("transactionList");
+                  result.transactions.forEach(tx => {
+                    const statusText = tx.status ? "✅ Success" : "⌛ Pending";
+                    list.innerHTML += `
+                      <div class="transaction-card">
+                        <p><strong>ID:</strong> ${tx.transaction_id}</p>
+                        <p><strong>Montant:</strong> FCFA ${tx.montant}</p>
+                        <p><strong>Status:</strong> ${statusText}</p>
+                        <p><strong>Date:</strong> ${new Date(tx.created_at).toLocaleString()}</p>
+                      </div>
+                    `;
+                  });
+                }
+              }
+          
+              window.onload = loadTransactions;
+            </script>
+          </body>
+          
+    
+</body>
+</html>

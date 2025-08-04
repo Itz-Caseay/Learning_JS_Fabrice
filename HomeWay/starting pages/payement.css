@@ -1,0 +1,87 @@
+body{
+    font-family: Arial,sans-serif;
+    background-color:#DDD ;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.payement-container{
+    background: rgb(87, 176, 248);
+    padding: 20px;
+    border-radius: 10px;
+    width:90%;
+    text-align: center;
+}
+.operator-buttons button{
+    width:48%;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.inactive{
+    background:orange ;
+    color: white;
+    border-radius: 7px;
+}
+.active{
+    background:yellow ;
+    color: white;
+    border-radius: 7px;
+}
+.payement-box,.details{
+    background:#DDD ;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+.copy-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #DDD;
+    padding: 7px;
+    border-radius: 5px;
+}
+.copy-box input{
+    border: none;
+    width: 85%;
+    font-size: 16px;
+}
+.copy-box button{
+    background-color: none;
+    border: none;
+    cursor: pointer;
+}
+.countdown{
+    font-size: 18px;
+    margin-top: 10px;
+}
+#pay-button{
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+#pay-button.active{
+    background-color: white;
+    color: black;
+    cursor:pointer;
+}
+.exit-btn{
+    width:100%;
+    padding: 10px;
+    font-size: 18px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 7px;
+}

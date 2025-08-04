@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./equipe.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header><h2><strong>Invitez vos amis et gagnez plus</strong></h2>
+        <p>Augmentez vos gains en invitaant vos amis a s'insccrire et a rejoindre notre plateforme.plus vous parrainez,plus vous gagnez!</p>
+    </header>
+<section class="invitation-box">
+    <div class="input-container">
+    <label for="code-invitation">code d'invitation</label>
+    <div class="input-group">
+    <input type="text" id="code-invitation" value="5010" readonly>
+    </div>
+    </div>
+    <div class="input-container">  
+    <label for="lien-invitation">Lien d'invitation</label>
+    <div class="input-group">
+    <input type="text" id="lien-invitation" value="https://tc-energy" readonly>
+    <button onclick="copytoClipboard('lien-invitation')">📋</button>
+    </div>
+    </div>
+</section>
+<section class="stats">
+    <p><strong>Gains total : </strong><span>0 FCFA</span></p>
+    <p><strong>Nombre total de personnes : </strong><span>0</span></p>
+</section>
+<button class="assistance">🔔 assistance</button>
+    <nav class="bottom-nav">
+        <a href="/home" class="nav-item">
+            <img src="./icons/house-svgrepo-com.svg" >
+            <span class="material-icons"></span>
+            <span>maison</span>
+         </a>
+        <a href="/product" class="nav-item">
+            <img src="./icons/conversation-svgrepo-com.svg" >
+            <span class="material-icons"></span>
+            <span>produit</span>
+         </a>
+         <a href="/team" class="nav-item">
+            <img src="./icons/team-svgrepo-com.svg" >
+            <span class="material-icons"></span>
+            <span>equipe</span>
+         </a>
+         <a href="/moi" class="nav-item">
+            <img src="./icons/me-svgrepo-com.svg" >
+            <span class="material-icons"></span>
+            <span>moi</span>
+         </a>
+    
+    </nav>
+    <script>
+        function copytoClipboard(id){
+            var copytext=document.getElementById(id);
+            copytext.select();
+            document.execCommand("copy");
+            alert("copie : "+ copytext.value);
+        }
+    </script>
+    
+    
+</body>
+</html>

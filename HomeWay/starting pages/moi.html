@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./moi.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <header><h1> Mes Informations</h1></header>
+    <section class="profile-infos">
+        <p><strong>Telephone : </strong>692817835</p>
+        <p><strong>code de parrainage : </strong>4509</p>
+        <p><strong>solde du compte: </strong><span id="montantDisplay"></span></p>
+    </section>
+    <hr>
+    <div class="actions">
+        <form action="/bank" method="get">
+            <button class="btn payment"><span class="icon">💳 </span>compte bancaire</button>
+            </form>
+            <form action="/receipt" method="get">
+        <button class="btn history"><span class="icon">⏳ </span>Historique des transactions</button>
+        </form>
+        <button class="btn history"><span class="icon"> </span>Mes Produit</button>
+    </div>
+    <button class="btn logout">↩️ se deconnecter</button>
+</div>
+    <button class="assistance">🔔 assistance</button>
+    <nav class="bottom-nav">
+        <a href="/home" class="nav-item">
+            <img src="./icons/house-svgrepo-com.svg" >
+            <span class="material-icons"></span>
+            <span>maison</span>
+         </a>
+        <a href="/produit" class="nav-item">
+            <img src="./icons/conversation-svgrepo-com.svg" >
+            <span class="material-icons"></span>
+            <span>produit</span>
+         </a>
+         <a href="/team" class="nav-item">
+            <img src="./icons/team-svgrepo-com.svg" >
+            <span class="material-icons"></span>
+            <span>equipe</span>
+         </a>
+         <a href="/moi" class="nav-item">
+            <img src="./icons/me-svgrepo-com.svg" >
+            <span class="material-icons"></span>
+            <span>moi</span>
+         </a>
+    
+    </nav>
+    <script>
+        async function fetchMontant() {
+          try {
+            const response = await fetch('/user-data', {
+      method: 'GET',
+      credentials: 'include' // ✅ necessary to send session cookie
+    });
+            const data = await response.json();
+      
+            if (data.success) {
+              document.getElementById('montantDisplay').textContent = data.user.montant + " CFA";
+            } else {
+              document.getElementById('montantDisplay').textContent = "Non connecté";
+            }
+          } catch (err) {
+            console.error("Erreur lors du chargement du montant:", err);
+          }
+        }
+      
+        window.onload = fetchMontant;
+      </script>
+</body>

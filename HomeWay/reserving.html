@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>HomeWay - Reserving</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/reserve.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="menu" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <div class="links" id="navLinks">
+        <img src="assets/location.jpg" height="50" width="50">
+        <h4>Username</h4>
+        <a href="index.html">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Reserved</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+        <a href="register/login.html"><button type="submit" class="btn">Login</button></a>
+        
+        <footer class="footer">
+          Copyright &copy; Home <span>Way</span> rights reserved 2025
+        </footer>
+      </div>
+    </div>
+    <div class="logo">
+      Home<span style="color: skyblue">Way</span>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <center>
+    <div class="reserve-container">
+      <h1>Crystal <span style="color: #fff;">Palace</span></h1>
+      <img src="assets/hilton.jpg">
+      <form method="post">
+        <label for="reserve_date">Date of Reservation</label>
+        <input type="date" name="reserve_date" placeholder="12/12/2024" required>
+        <label for="sex">Sex</label>
+        <select name="sex" required>
+          <option></option>
+          <option>Man</option>
+          <option>Woman</option>
+          <option>Rather not say</option>
+        </select>
+        
+        <label for="company">Company Of</label>
+        <select name="company" required>
+          <option></option>
+          <option>Alone</option>
+          <option>Man or Woman</option>
+          <option>A Friend</option>
+          <option>Family Member</option>
+          <option>Rather not say</option>
+        </select>
+        
+        <label for="days">Estimated Duration</label>
+        <input type="number" name="days" placeholder="Please enter the exact number of days or month then choose Day or Month below" required>
+        <select name="days" required>
+          <option></option>
+          <option>Day(s)</option>
+          <option>Week(s)</option>
+          <option>Month(s)</option>
+          <option>Year</option>
+        </select>
+        
+        <label for="payment">Payment Method</label>
+        <select name="payment" required>
+          <option></option>
+          <option>OM (ORANGE MONEY)</option>
+          <option>MOMO (MOBILE MONEY)</option>
+          <option>OTHERS (ie: Paypal, Bank accounts & etc.)</option>
+        </select>
+        
+        <label for="phone">Phone Contact</label>
+        <input type="tel" name="phone" placeholder="+237 673 044 019" required>
+        
+        <label for="email">Email Address</label>
+        <input type="email" name="email" placeholder="example123@gmail.com" required>
+        
+        <button type="submit">Reserve</button><br>
+        <br>
+        <center>
+          By Clicking on reserve. Your Room Details shall be send by email
+        </center>
+      </form>
+    </div>
+  </center>
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

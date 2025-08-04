@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paiement</title>
+    <link rel="stylesheet" href="payement.css">
+</head>
+<body>
+    <div class="payement-container">
+        <h2>Terminer le paiement </h2>
+        <div class="operator-buttons">
+            <button id="orange-btn" class="inactive">ORANGE</button>
+            <button id="mtn-btn" class="active">MTN</button>
+        </div>
+        <div class="payement-box">
+            <h3>Lien de paiement</h3>
+            <p>Veuillez copier ou cliquer sur le code pour finaliser la transaction</p>
+            <div class="copy-box">
+                <input type="text" value="*126*14*675716545*38000#" id="ussd-code" readonly>
+        <button onclick="copytoClipboard('ussd-code')">📋</button>
+
+            </div>
+        </div>
+        <div class="details">
+            <label>Montant selectionne</label>
+            <div class="copy-box">
+                <input type="text" value="FCFA 38000" readonly>
+                
+            </div>
+            <label> numero du compte </label>
+            <div class="copy-box">
+                <input type="text" value="+237 692817835" id="numero" readonly>
+               
+
+            </div>
+            <label>Identifiant de la transaction </label>
+            <div class="copy-box">
+                <input type="text" value="" >
+            </div>
+        </div>
+        <div class="countdown">
+            Temps restant : <span id="timer">10:00</span>
+        </div>
+        
+        <button id="pay-button" class="active1">j'ai paye </button>
+    
+    <form action="/home" method="get">
+        <button id="exit-button" class="exit-btn">Quitter </button>
+        </form>
+    </div>
+    <script src="payement.js"></script>
+    <script>
+         
+        function copytoClipboard(id){
+            var copytext=document.getElementById(id);
+            copytext.select();
+            document.execCommand("copy");
+            alert("copie : "+ copytext.value);
+        }
+        
+document.getElementById("pay-button").addEventListener("click", async () => {
+  const numero = localStorage.getItem("numero"); // or however you store user number
+  const montant = 38000;
+  const transactionId = Date.now().toString(); // You can use something better for production
+
+  const response = await fetch('/save-transaction', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ numero, montant, transaction_id: transactionId })
+  });
+
+  const result = await response.json();
+  if (result.success) {
+    alert("Transaction sauvegardée !");
+    window.location.href = "/transactions.html"; // redirect to cart page
+  } else {
+    alert("Erreur pendant l'enregistrement");
+  }
+});
+
+
+   
+    </script>
+    
+</body>
+</html>

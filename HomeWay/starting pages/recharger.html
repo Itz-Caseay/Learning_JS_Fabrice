@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./recharger.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/home" class="back-button"><</a>
+            <h1>recharger</h1>
+        </header>
+        <div class="balance-section">
+            <div class="balance-item">
+                <p>100 FCFA</p>
+                <p>Revenue Cumule</p>
+            </div>
+            <div class="balance-item">
+                <p><span id="montantDisplay"> </span></p>
+                <p>solde disponible </p>
+            </div>
+        </div>
+        <div clas="amount-buttons">
+            <button class="amount-btn" value="3500fcfa">3500FCFA</button>
+            <button class="amount-btn">6500FCFA</button>
+            <button class="amount-btn">12000FCFA</button>
+            <button class="amount-btn">20000FCFA</button>
+            <button class="amount-btn">30000FCFA</button>
+            <button class="amount-btn">65000FCFA</button>
+        </div>
+        <div class="input-section">
+            <label for="rechargeAmount">Montant de la recharge</label>
+            <input type="tel" id="rechargeAmount" value="FCFA " readonly onfocus="this.removeAttribute('readonly');">
+            <label for="phoneNumber">Numero de telephone</label>
+            <div class="phone-input">
+                <span>+237</span>
+                <input type="tel" id="phoneNumber" placeholder="Numero du compte bancaire">
+
+            </div>
+        </div>
+      <a href="#" class="derniere-transaction"> 📜derniere transaction</a>
+      <form action="/transaction" method="get">
+      <button class="confirm-button">confirmer</button>
+      </form>
+      <div class="conditions">
+        <h2>conditions de recharge</h2>
+        <ol>
+            <li> Le montant minimum de la recharge est de 3500FCFA</li>
+            <li>Toute transaction soumise et annule par l'utilisateur a la suite constituera un bassissement permanent du compte de l'utlisateur. </li>
+            <li>vous devez soummettre la demande dans le temps imparti</li>
+            <li> veillez patienter entre 1 a 30 minutes apres la recharge</li>
+            <li> veillez n'utilisere aue les moyen de paiement fournis sur cette page ,nous ne serons en aucun cas responsable de toute perte de fonds.</li>
+            <li>veillez entrer correctement id de transaction une fois la transaction effectue.</li>
+        </ol>
+      </div>
+    </div>
+    <script src="./recharge.js"></script>
+    <script>
+        async function fetchMontant() {
+          try {
+            const response = await fetch('/user-data', {
+      method: 'GET',
+      credentials: 'include' // ✅ necessary to send session cookie
+    });
+            const data = await response.json();
+      
+            if (data.success) {
+              document.getElementById('montantDisplay').textContent = data.user.montant + " CFA";
+            } else {
+              document.getElementById('montantDisplay').textContent = "Non connecté";
+            }
+          } catch (err) {
+            console.error("Erreur lors du chargement du montant:", err);
+          }
+        }
+      
+        window.onload = fetchMontant;
+      </script>
+</body>

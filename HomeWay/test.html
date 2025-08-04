@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeWay - Home</title>
+  <link rel="stylesheet" href="styles/indx.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    /* Navigation Styles */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #333;
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    /* Hamburger menu for mobile */
+    .menu {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px;
+    }
+
+    /* Navigation Links */
+    .links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20%;
+      height: 100vh;
+      background: #444;
+      display: none;
+      flex-direction: column;
+      padding: 60px 20px;
+    }
+
+    .links a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+
+    .links.active {
+      display: flex;
+    }
+
+    /* Main Content */
+    .container {
+      background: white;
+      width: 90%;
+      max-width: 400px;
+      padding: 15px;
+      margin: 80px auto;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .container img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .btns button {
+      background: skyblue;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .located {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .located img {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    /* Responsive Grid Layout */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* Media Queries */
+    @media (min-width: 768px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .container {
+        max-width: 500px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        padding: 0;
+      }
+
+      .links a {
+        margin-left: 20px;
+        color: white;
+        font-size: 1rem;
+      }
+
+      .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="logo">Home<span style="color: skyblue;">Way</span></div>
+    <div class="menu" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Responsive Hotel Grid -->
+  <div class="grid-container">
+    <div class="container">
+      <div class="header"><h1>Hilton <span style="color: white;">Hotel</span></h1></div>
+      <img src="assets/hilton.jpg">
+      <div class="details">
+        <div class="btns">
+          <button type="submit">Reserve</button>
+        </div>
+        <div class="located">
+          <img src="assets/location.svg"> <i>Douala, 500,000XAF /M</i>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="header"><h1>Marriott <span style="color: white;">Hotel</span></h1></div>
+      <img src="assets/marriott.jpg">
+      <div class="details">
+        <div class="btns">
+          <button type="submit">Reserve</button>
+        </div>
+        <div class="located">
+          <img src="assets/location.svg"> <i>Yaoundé, 450,000XAF /M</i>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="header"><h1>Radisson <span style="color: white;">Hotel</span></h1></div>
+      <img src="assets/radisson.jpg">
+      <div class="details">
+        <div class="btns">
+          <button type="submit">Reserve</button>
+        </div>
+        <div class="located">
+          <img src="assets/location.svg"> <i>Buea, 400,000XAF /M</i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Toggle Menu -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

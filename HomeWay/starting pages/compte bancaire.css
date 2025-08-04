@@ -1,0 +1,31 @@
+body{
+    font-family: Arial,sans-serif;
+    text-align: center;
+}
+.container{
+    width:300px;
+    margin:auto;
+    padding: 20px;
+    border:1px solid #DDD;
+    border-radius: 10px;
+}
+input,select{
+    width:100%;
+    padding: 8px;
+    margin:10px 0;
+}
+button{
+    background:rgb(87, 176, 248);
+    color: white;
+    padding:10px;
+    width: 100%;
+    border:none;
+    cursor:pointer;
+}
+.hidden{
+    display:none;
+}
+.delete-btn{
+    background:rgb(87, 176, 248) ;
+    margin-top: 10px;
+}

@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #fff;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.nav .links{
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.container{
+  text-align: center;
+  width: 95%;
+  height: 300px;
+  background: skyblue;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+
+.container .header{
+  margin-top: 15px;
+}
+
+.container img{
+  width: 98%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.container .btns{
+  display: flex;
+  margin-right: 50px;
+  overflow: hidden;
+  gap: 75px;
+}
+
+.container .btns button{
+  width: 60px;
+  height: 23px;
+  background: #fff;
+  color: skyblue;
+  border: none;
+  outline: none;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  transition: .9s ease-in-out;
+}
+
+.container .btns button:hover{
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.container .btns .save{
+  margin-bottom: 10pz;
+  margin-left: 100px;
+  width: 45px;
+  height: 25px;
+  background: #fff;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.container .located{
+  display: flex;
+  overflow: hidden;
+  gap: 5px;
+  margin-bottom: 10px;
+  margin-left: 45px;
+  float: right;
+  justify-items: center;
+}
+
+.container .located img{
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  text-align: baseline;
+  opacity: 60%;
+  margin-left: 45px;
+  margin-bottom: 10px;
+}
+
+.container .located img:hover{
+  color: white;
+}
+
+.container .located i{
+  margin-top: 6px;
+  font-weight: bold;
+  display: flex;
+  font-size: 12px;
+}
+
+.container .details{
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.logo{
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+  position: fixed;
+  margin-top: 10px;
+  margin-left: 5px;
+  }
+
+.links {
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+      /* This ensures it spans full height of viewport */
+  height: 100vh;
+  width: 45%;
+  background: rgba(135, 206, 235, 0.5);
+      /* Hidden by default: we slide it left with transform */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: inline-block;
+  flex-direction: column;
+  padding: 60px 20px; /* Some spacing inside the menu */
+  z-index: 999;
+  overflow: hidden; /* Prevents scrolling */
+  border: none;
+  gap: 10px;
+}
+
+.links.active {
+      transform: translateX(0);
+    }
+
+.links img{
+  border: none;
+  border-radius: 50%;
+}
+
+.links img:hover{
+  border: 1px solid skyblue;
+}
+
+.links h4{
+  margin-top: 5px;
+}
+
+.menu {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+  margin-left: 10px;
+  margin-top: 10px;
+  
+    }
+
+    .menu span {
+      width: 25px;
+      height: 3px;
+      background: skyblue;
+      margin: 3px;
+      margin-left: 320px;
+      cursor: pointer;
+    }
+
+.links a {
+      color: white;
+      font-weight: bold;
+      font-family: 'poppins';
+      text-decoration: none;
+      margin-top: 2rem;
+      display: block;
+      font-size: 1.3rem;
+      transition: color 0.2s ease;
+    }
+
+.btn{
+  width: 60px;
+  height: 23px;
+  background: #fff;
+  color: skyblue;
+  border: none;
+  outline: none;
+  margin-top: 15px;
+  margin-left: 8px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  transition: .9s ease-in-out;
+}
+
+.btn:hover{
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+footer{
+  margin-top: 180px;
+  text-align: center;
+  color: black;
+}
+
+footer {
+  font-weight: bold;
+  font-size: 8px;
+  text-align: center;
+}
+
+.footer span{
+  color: red;
+}

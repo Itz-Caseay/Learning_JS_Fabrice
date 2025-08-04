@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./home-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="information-box">
+       <h1 class="information"><marquee><b>Notifier:veiller rejoindre notre canal telegram pour plus d'infomation!
+       Note: join our telegram canal for more information!</marquee></h1>
+    </div>
+ <div class="heading">
+     <header class="first-heading">Bienvenue chez tc energy</header>
+      <h3 class="second-heading"> solde actuel :<span id="montantDisplay"> </span></h2>
+</div>
+<div class="transaction-button">
+    <form action="/depot" method="get">
+    <button class="depot">depot</button>
+</form>
+<form action="/retrait" method="get">
+    <button class="depot">retrait</button>
+</form>
+</div>
+<div class="money-box">
+     <div class="box1"> total depose
+       <div class="money-in-box">0 FCFA</div>
+   </div>
+   <div class="box2">total des retrait
+     <div class="money-in-box"> 0 FCFA</div>
+   </div>
+</div>
+<button class="assistance">🔔 assistance</button>
+<div class="fact">
+    <img src="data:image/jpeg;base64,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" alt="fact" class="fact-image">
+    <div class="fact-message"> TC Energy Corporation, anciennement connue sous le nom de TransCanada Corporation, est une entreprise majeure dans le domaine des infrastructures énergétiques, avec une forte présence au Canada, aux États-Unis et au Mexique. Fondée en **1951**, elle exploite un vaste réseau de pipelines de gaz naturel et de pétrole brut, assurant le transport fiable de l'énergie à travers l'Amérique du Nord. Son **système d’oléoducs Keystone** transporte du pétrole brut de l'Alberta, au Canada, vers des raffineries aux États-Unis, tandis que son réseau de gaz naturel alimente le chauffage, la production d'électricité et l'industrie. L'entreprise possède également un portefeuille croissant d'actifs de production d'électricité, y compris l'énergie nucléaire, éolienne et solaire, avec un accent mis sur la durabilité et la réduction des émissions. Malgré son importance économique, TC Energy a fait face à l'opposition d'activistes environnementaux et de groupes autochtones, notamment en raison du projet Keystone XL, annulé en 2021. L'entreprise continue d'investir dans des projets liés à la transition énergétique, tels que le captage du carbone et les infrastructures à hydrogène, tout en maintenant son rôle clé dans la sécurité énergétique de l'Amérique du Nord.</div>
+
+</div>
+<nav class="bottom-nav">
+    
+    <a href="#" class="nav-item">
+        <img src="./icons/house-svgrepo-com.svg" >
+        <span class="material-icons"></span>
+        <span>maison</span>
+     </a>
+
+
+     
+    <a href="/product" class="nav-item">
+        <img src="./icons/conversation-svgrepo-com.svg" >
+        <span class="material-icons"></span>
+        <span>produit</span>
+     </a>
+     
+
+
+     <a href="/team" class="nav-item">
+        <img src="./icons/team-svgrepo-com.svg" >
+        <span class="material-icons"></span>
+        <span>equipe</span>
+     </a>
+     <a href="/moi" class="nav-item">
+        <img src="./icons/me-svgrepo-com.svg" >
+        <span class="material-icons"></span>
+        <span>moi</span>
+     </a>
+
+</nav>
+
+    
+</body>
+<style>
+    .first-heading{
+        font-family: bebas neue,sans-serif;
+        font-size: 30px;
+        font-weight: 100;
+        
+    }
+    .second-heading{
+        font-family: bebas neue,sans-serif;
+        font-size: 30px;
+        font-weight: 100;
+    } 
+    .fact-message{
+        font-family: bebas neue,sans-serif;
+        font-size: 30px;
+        font-weight: 100; 
+        margin-bottom: 100px;
+
+    }
+    
+    
+</style>
+
+</script>
+<script>
+    async function fetchMontant() {
+      try {
+        const response = await fetch('/user-data', {
+  method: 'GET',
+  credentials: 'include' // ✅ necessary to send session cookie
+});
+        const data = await response.json();
+  
+        if (data.success) {
+          document.getElementById('montantDisplay').textContent = data.user.montant + " CFA";
+        } else {
+          document.getElementById('montantDisplay').textContent = "Non connecté";
+        }
+      } catch (err) {
+        console.error("Erreur lors du chargement du montant:", err);
+      }
+    }
+  
+    window.onload = fetchMontant;
+  </script>
+  
+<script src="./home-page.js"></script>
+</html>

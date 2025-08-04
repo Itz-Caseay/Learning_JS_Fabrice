@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./retrait.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/home" class="back">&lt; maison</a>
+        </header>
+        <div class="balance">
+            <p class="profit">Solde Disponible </p>
+            <h1><span id="montantDisplay"></span></h1>
+        </div>
+        <div class="withdraw-section">
+            <label for="amount">Montant</label>
+            <input type="number" id="amount" placeholder="combien?">
+            <label for="account">compte bancaire</label>
+            <div class="account-box">
+                <span>Orange | 692817835 </span>
+                <span class="checkmark">4</span>
+            </div>
+    
+        
+        <div class="info-box">
+            <h3>Information</h3>
+            <ol>
+                <li>Verifier vos coordonnees bancaires pour effectuer votre retrait correctement.</li>
+                <li>Vous pouvez retirer un minimum de 1000 FCFA.</li>
+                <li>le compte bancaire de la platforme peut prelever une commision de 12% sur vos retraits.</li>
+                <li>Lorsque vous retirez,chaque retrait de membre est generalement reussi dans un delai de 1 a 24 heures maximum. </li>
+                <li>En cas d'echeance de votre retrait veillez ,contacter le service client.</li>
+            </ul>
+        </div>
+        <button class="widthdraw-btn"> Retirer </button>
+    </div>
+        
+    </div>
+    <script>
+        async function fetchMontant() {
+          try {
+            const response = await fetch('/user-data', {
+      method: 'GET',
+      credentials: 'include' // ✅ necessary to send session cookie
+    });
+            const data = await response.json();
+      
+            if (data.success) {
+              document.getElementById('montantDisplay').textContent = data.user.montant + " CFA";
+            } else {
+              document.getElementById('montantDisplay').textContent = "Non connecté";
+            }
+          } catch (err) {
+            console.error("Erreur lors du chargement du montant:", err);
+          }
+        }
+      
+        window.onload = fetchMontant;
+      </script>
+</body>

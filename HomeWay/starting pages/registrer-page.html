@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registrer-page.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body >
+<div class="logo">
+    <img src="../tc-energy-seeklogo.png">
+</div>
+   
+<div class="login-box">
+    <div class="topic">
+    Bienvenue chez Tc energy
+</div>
+<form id="signupForm"class="sig" action="/registration" method="post">
+    <div class="input-header">
+        Nom d'utilisateur
+    </div>
+    <div class="input-box">
+        <input type="text" class="input-field" placeholder=" Entrer votre nom d'utilisateur" autocomplete="off" name="username" required >
+    </div>
+    <div class="input-header">
+        Numero de telephone
+    </div>
+    <div class="input-box">
+        <input type="tel" class="input-field" placeholder=" Entrer votre numero de telephone" autocomplete="off" name="numero" required >
+    </div>
+    <div class="input-header">
+        Mot de passe de connection
+    </div>
+    <div class="input-box">
+        <input type="password" class="input-field" placeholder=" Entrer votre mot de passe" autocomplete="off" name="numero" required >
+    </div>
+    <div class="input-header">
+        Confirmer votre mot de passe
+    </div>
+    <div class="input-box">
+        <input type="password" class="input-field" placeholder="Confirmer votre mot de passe" autocomplete="off" name="numero" required >
+    </div>
+
+    
+    <div class="input-header">
+        Code d'invitation
+    </div>
+ <div class="input-box">
+    <input type="password" class="input-field" placeholder=" " autocomplete="off" readonly>
+ </div>
+
+
+    <div class="forgot">
+        <section>
+            <input type="checkbox" id="check">
+            <label for="check">se rappeler</label>
+        </section>
+        <section>
+            <a href="#">mot de passe oublie</a>
+        </section>
+    </div>
+    <div class="input-submit">
+        <form action="/login" form="get">
+        <button class="submit-btn" id="submit">Se connecter</button>
+        </form>
+    </div>
+    
+</form>
+<div class="sign-up-link">
+    <section><p>Vous avez deja un compte? <a href="/login">Se connecter</a></p></section>
+</div>
+   
+  </div>
+
+</div>
+<style>
+    .login-header header{
+        font-family: 'roboto',sans-serif;
+    }
+</style>
+</body>
+<script>
+fetch('/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      numero: "12345",
+      password: "yourpass"
+    })
+  })
+  .then(res => res.json())
+  .then(data => console.log(data));
+</script>  
+
+</html>
