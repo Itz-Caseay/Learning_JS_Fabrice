@@ -1,3 +1,79 @@
+@media(min-width: 721px){
+    body{
+    display: flex;
+    background: #fff;
+    color: #000;
+  }
+  .btns{
+    width: 25%;
+    height: 100vh;
+    background: transparent;
+    display: block;
+  }
+  
+  .btns button{
+      width: 120px;
+      height: 40px;
+      background: rgb(22, 23, 49);
+      display: block;
+      margin: 15px;
+      color: #fff;
+      border: none;
+      outline: none;
+      border-radius: 3px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  button:hover{
+      background: transparent;
+      color: rgb(22, 23, 49);
+      border: 2px solid rgb(22, 23, 49);
+      transition: .9s ease-in-out;
+    }
+    .shapes{
+    display: block;
+    width: 75%;
+    text-align: center;
+    background: transparent;
+    margin: 20px;
+    }
+    input{
+      width: 70%;
+      height: 25px;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 50px;
+      border: 2px solid rgb(22, 23, 49);
+      outline: none;
+      background: transparent;
+      color: rgb(22, 23, 49);
+      font-weight: bold;
+    }
+    
+    .shapes button{
+      width: 50%;
+      height: 30px;
+      background: rgb(22, 23, 49);
+      color: #fff;
+      border: none;
+      outline: none;
+      border-radius: 3px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    p{
+      font-weight: bold;
+    }
+    .shapes button:hover{
+      background: transparent;
+      color: rgb(22, 23, 49);
+      border: 2px solid rgb(22, 23, 49);
+      transition: .9s ease-in-out;
+    }
+}
+
+
 @media(max-width: 720px){
   body{
     display: block;
@@ -77,7 +153,7 @@
 
 footer{
   padding: 15px;
-  width: 90%;
+  width: 100%;
   background: rgb(22, 23, 49);
   color: #fff;
   text-align: center;
