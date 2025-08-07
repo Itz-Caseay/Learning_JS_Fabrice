@@ -1,0 +1,117 @@
+<!-- Save Image -->
+<input type="file" accept="image/*" id="imageInput" />
+<button id="saveImage">Save Image</button>
+
+<script>
+  document.getElementById("saveImage").addEventListener("click", () => {
+    const fileInput = document.getElementById("imageInput");
+    const file = fileInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        localStorage.setItem("savedImage", event.target.result); // Save Base64 string
+        alert("Image saved to localStorage!");
+      };
+      reader.readAsDataURL(file); // Convert image to Base64
+    } else {
+      alert("Please select an image first.");
+    }
+  });
+</script>
+
+
+<!-- part2 Usually on the next html file -->
+
+<!-- Load Image -->
+<img id="displayImage" alt="Saved Image" />
+<script>
+  const savedImage = localStorage.getItem("savedImage");
+  if (savedImage) {
+    document.getElementById("displayImage").src = savedImage; // Set image source
+  } else {
+    alert("No image found in localStorage.");
+  }
+</script>
+
+
+
+<!-- blog.html -->
+<form id="blog-form">
+  <input type="text" id="title" placeholder="Title" required />
+  <textarea id="description" placeholder="Description" required></textarea>
+  <input type="file" id="profilePicInput" accept="image/*" required />
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+const blog_form = document.getElementById("blog-form");
+const profilePicInput = document.getElementById("profilePicInput");
+
+blog_form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const blog_title = document.getElementById("title").value;
+  const blog_description = document.getElementById("description").value;
+  const file = profilePicInput.files[0];
+
+  if (!file) {
+    alert("Please select an image.");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function () {
+    const blog_image = reader.result; // Base64 Data URL
+
+    const new_blog = {
+      blog_title,
+      blog_description,
+      blog_image,
+    };
+
+    // Get existing blogs from localStorage or start with empty array
+    const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+    blogs.push(new_blog);
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+
+    blog_form.reset();
+    alert("Blog created successfully");
+  };
+
+  reader.readAsDataURL(file); // Convert image to Base64
+});
+</script>
+
+<!-- home.html -->
+<div id="home"></div>
+
+<script>
+const blog_list = document.getElementById("home");
+const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+
+if (blogs.length === 0) {
+  blog_list.innerHTML = "<p>No blogs found.</p>";
+} else {
+  blogs.forEach((blog) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <div class='blog-item'>
+        <div class="img">
+          <img src="${blog.blog_image}" alt="main image">
+        </div>
+        <div class="info">
+          <h2>${blog.blog_title}</h2>
+          <p>${blog.blog_description}</p>
+          <div class="profile">
+            <img src="${blog.blog_image}" alt="user profile">
+            <span>Anonymous</span>
+          </div>
+          <div class="btn">See more</div>
+        </div>
+      </div>
+    `;
+    blog_list.appendChild(div);
+  });
+}
+</script>

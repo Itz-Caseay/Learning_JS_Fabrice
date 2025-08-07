@@ -10,6 +10,7 @@ blog_form.addEventListener("submit", (e) => {
     const blog_title = document.getElementById("title").value;
     const blog_description = document.getElementById("description").value;
     const blog_image = document.getElementById("profilePicInput").value;
+    const file = fileInput.files[0];
     
     
       const new_blog = {
