@@ -4,6 +4,9 @@
     font-family: 'popins', sans-serif;
     box-sizing: border-box;
 }
+body{
+    background: linear-gradient(135deg, #153677, #4e085f);
+}
 .container{
     width: 100%;
     min-height: 100vh;
@@ -14,7 +17,7 @@
 .todo-app{
     width: 100%;
     max-width: 540px;
-    background: #fff;
+    background: skyblue;
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
@@ -28,6 +31,7 @@ margin-bottom: 20px;
 .todo-app img{
     width: 30px;
     margin-left: 10px;
+    border-radius: 50%;
 }
 .row{
     display: flex;
@@ -51,10 +55,15 @@ button{
     color: #fff;
     padding: 16px 50px;
     outline: none;
-    background: #ff5945;
+    background: rgb(22, 23, 49);
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+    &:hover{
+        background: transparent;
+        color: #153677;
+        border: #153677 1px solid;
+    }
 }
 ul li{
     list-style: none;
@@ -131,4 +140,47 @@ ul li span:hover{
     background: transparent;
     color: #ff5945;
     border: #ff5945 1px solid;
+}
+
+@media(max-width: 720px){
+
+    .todo-app .row{
+        background: transparent;
+        display: block;
+    }
+
+    .todo-app .row input {
+        background: transparent;
+        border: #002765 1px solid;
+        padding: 10px;
+        width: 100%;
+        height: 45px;
+        display: flex;
+        border-radius: 50px;
+        margin-right: 40px;
+    }
+    .todo-app .row button{
+        width: 100%;
+        display: block;
+        margin-top: 20px;
+    }
+
+    .btn{
+        width: 95%;
+        display: flex;
+        margin: 10px;
+        /* padding: 10px; */
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        align-self: center;
+        justify-self: center;
+        border-radius: 50px;
+        margin-left: 10px;
+    }
+
+    li{
+        justify-content: center;
+        text-align: center;
+    }
 }
