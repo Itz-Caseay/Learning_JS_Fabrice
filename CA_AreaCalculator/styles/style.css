@@ -39,7 +39,7 @@
     }
     input{
       width: 70%;
-      height: 25px;
+      height: 40px;
       padding: 10px;
       margin: 10px;
       border-radius: 50px;
@@ -90,7 +90,7 @@
     padding: 15px;
     button{
       width: 80px;
-      height: 30px;
+      height: 40px;
       background: rgb(22, 23, 49);
       color: #fff;
       border: none;
