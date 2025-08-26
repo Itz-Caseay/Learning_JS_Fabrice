@@ -14,11 +14,17 @@
 
 .navbar .logo{
         width: 100%;
-        height: 60px;
+        height: 80px;
         border-bottom: rgb(92, 92, 95) 1px solid;
         justify-content: center;
         display: flex;
         text-align: center;
         align-items: center;
         gap: 10px;
+}
+
+.navbar .logo span{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        gap: 0;
+        font-size: 20px;
 }

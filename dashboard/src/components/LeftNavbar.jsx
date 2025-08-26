@@ -7,7 +7,7 @@ const LeftNavbar = () => {
   return (
     <div>
         <div className="navbar">
-                <div className="logo"> <Hexagon /> Let's Bleed</div>
+                <div className="logo"> <Hexagon size={50} /> <span>CORE <span>UI</span> REACT.JS</span></div>
         </div>
     </div>
   )
