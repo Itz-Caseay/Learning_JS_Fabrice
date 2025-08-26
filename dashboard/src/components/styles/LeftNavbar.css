@@ -25,6 +25,19 @@
 
 .navbar .logo span{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        gap: 0;
+        gap: 2px;
+        display: flex;
         font-size: 20px;
+}
+
+.navbar .logo span span{
+        display: flex;
+        font-size: 15px;
+}
+
+.navbar .logo span h4{
+        display: flex;
+        color: skyblue;
+        font-weight: 100;
+        left: 20px;
 }
