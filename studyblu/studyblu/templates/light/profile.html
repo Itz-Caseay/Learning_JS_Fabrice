@@ -1,0 +1,68 @@
+{%extends 'light/main.html'%}
+
+{% block content%}
+  <main class="profile-page layout layout--3">
+    <div class="container">
+      <!-- Topics Start -->
+      {% include 'light/base/topics_components.html' %}
+      <!-- Topics End -->
+
+      <!-- Room List Start -->
+      <div class="roomList">
+        <div class="profile">
+          <div class="profile__avatar">
+            <a href="{{user.avatar.url}}"><div class="avatar avatar--large active">
+              <img src="{{user.avatar.url}}" />
+            </div></a>
+          </div>
+          <div class="profile__info">
+            <h3>{{user.name}}</h3>
+           
+            <p>@{{user.username}}</p>
+            {% if request.user == user%}
+            <a href="{% url 'light-edit-user' %}" class="btn btn--main btn--pill">Edit Profile</a><br>
+            <a href="{% url 'light-settings' %}" style="margin-top:5px;"class="btn btn--main btn--pill">Settings</a><br>
+            
+          
+            {%endif%}
+          </div>
+          <div style="text-align:center;" class="profile__about">
+            <h3>About</h3>
+            <p>
+             {{user.about}}
+            </p>
+            {%for message in messages%}
+              <span style="color:green;">{{message}}</span>
+              {%endfor%}
+          </div>
+        </div>
+
+        <div class="roomList__header">
+          {%if request.user != user%}
+          <div>
+            <h2>Study Rooms Hosted by {{user.username}}</a>
+            </h2>
+          </div>
+          {%else%}
+          <div>
+            <h2>Study Rooms Hosted by you</a>
+            </h2>
+          </div>
+          {%endif%}
+        </div>
+       
+        {%include 'light/base/feed_components.html'%}
+
+      
+
+        
+      </div>
+      <!-- Room List End -->
+
+      <!-- Activities Start -->
+      {%include 'light/base/activity_component.html'%}
+      <!-- Activities End -->
+    </div>
+  </main>
+
+{%endblock content%}

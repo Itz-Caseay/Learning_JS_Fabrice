@@ -1,0 +1,270 @@
+{% extends 'main.html'%}
+
+{% block content%}
+ {%load static%}
+
+    <style>
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+   
+    
+
+        .me{
+            width: 25%;
+            height: 5vh;
+            float:right;
+            margin: 5px;
+            padding-left: 2px;
+            text-align: center;
+            color: aqua;
+            text-shadow: rgb(32, 52, 63), 5px ;
+        
+        
+        }
+
+        .containers{
+            position: relative;
+            width: 45rem;
+            height: 90rem;
+            background: #f5f5f5; 
+            box-shadow: 0 30px 50px #dbdbdb;
+            border-radius:9%;
+            
+            
+            
+        }
+
+        .containers .slide .item{
+            width: 100px;
+            height: 160px;
+            position:absolute;
+            top: 50%;
+            left:75%;
+            transform: translate(0, -50%);
+            border-radius: 20px;
+            box-shadow:0 30px 50px #505050 ;
+            background-position: 50% 50%;
+            background-size: cover;
+            display: inline-block;
+            transition: 0.5s;
+            
+            }
+
+        .slide .item:nth-child(1),
+        .slide .item:nth-child(2){
+            top: 0;
+            left:0;
+            transform: translate(0, 0);
+            
+            width: 100%;
+            height: 100%;
+            border-radius:9%;
+        }
+
+       
+
+       
+
+        .item .content{
+            position: absolute;
+            top: 30%;
+            right:100px;
+            width: 300px;
+            text-align: left;
+            color: #eee;
+            transform: translate(0, 50%);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: none;
+            border-radius:9%;
+        }
+
+
+
+        .slide .item:nth-child(2) .content{
+            display: block;
+        }
+
+        .content .name{
+            font-size: 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+            opacity: 0;
+            animation: animate 1s ease-in-out 1 forwards;
+            color:skyblue;
+        }
+
+        .content .des{
+            margin-top: 5px;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation:  animate 1s ease-in-out 0.3s 1 forwards;
+            color:rgb(54, 157, 197);
+        }
+
+        .content .button{
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            animation: animate 1s ease-in-out 0.6s 1 forwards ;
+        }
+
+        @keyframes animate{
+            from{
+                opacity: 0;
+                transform: translate(0, 100px);
+                filter: blur(33px);
+            }
+            to{
+                opacity: 1;
+                transform: translate(0);
+                filter: blur(0);
+            }
+        }
+        .button{
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 20px;
+
+
+        }
+
+        .button button{
+            width: 40px;
+            height: 35px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            margin: 0 5px;
+            border: 1px solid #000;
+            transition: 0.3s;
+            background-color: antiquewhite;
+        }
+
+        button:hover{
+            background: rgb(64, 74, 78);
+            color: #fff;
+        }
+        button:active{
+            opacity: 0.5;
+        }
+
+
+    </style>
+
+    
+        {% comment %} <div class="me">
+            <div class="room__topics">
+                RAHIMSTUDIOS.LTD
+            
+                    <div class="contact-details col-md-6 ">
+                        <h3 class="mb-3">Contact Details</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, vero, provident, eum eligendi blanditiis ex
+                            explicabo vitae nostrum facilis asperiores dolorem illo officiis ratione vel fugiat dicta laboriosam labore
+                            adipisci.</p>
+                        <ul class="contact-short-info mt-4">
+                            <li class="mb-3">
+                                <i class="tf-ion-ios-home"></i>
+                                <span>Khaja Road, Bayzid, Chittagong, Bangladesh</span>
+                            </li>
+                            <li class="mb-3">
+                                <i class="tf-ion-android-phone-portrait"></i>
+                                <span>Phone: +880-31-000-000</span>
+                            </li>
+                            <li class="mb-3">
+                                <i class="tf-ion-android-globe"></i>
+                                <span>Fax: +880-31-000-000</span>
+                            </li>
+                            <li>
+                                <i class="tf-ion-android-mail"></i>
+                                <span>Email: hello@meghna.com</span>
+                            </li>
+                        </ul>
+                        <!-- Footer Social Links -->
+                        <div class="social-icon">
+                            <ul>
+                                <li><a href="https://themefisher.com/"><i class="tf-ion-social-facebook"></i></a></li>
+                                <li><a href="https://themefisher.com/"><i class="tf-ion-social-twitter"></i></a></li>
+                                <li><a href="https://themefisher.com/"><i class="tf-ion-social-dribbble-outline"></i></a></li>
+                                <li><a href="https://themefisher.com/"><i class="tf-ion-social-linkedin-outline"></i></a></li>
+                            </ul>
+                        </div>
+                        <!--/. End Footer Social Links -->
+                    </div>
+            </div>
+        
+                
+        </div> {% endcomment %}
+    
+   <div class="containers">
+    <div class="slide" >
+        <div class="item" style="background-image:url({% static "images/team/p1.jpg" %});">
+            <div class="content">
+                <div class="name">Ibrahim Fonyuy</div>
+                <div class="des">The only aspect which distinguishes a leader from a follower is the art of creativity (innovation)</div>
+                <div class="des">Backend Developer</div>
+                <button>see more</button>
+            </div>
+        </div>
+        
+        <div class="item" style="background-image:url({% static "images/team/p3.jpg" %});">
+            <div class="content">
+                <div class="name">Ngochu Emanuella</div>
+                <div class="des">An emerging instance of development and advanced facilities which has powerfull reasoning often compared to humans </div>
+                <div class="des">Frontend Developer</div>
+                <button>see more</button>
+            </div>
+        </div>
+        <div class="item" style="background-image:url({% static "images/team/p4.jpg" %});">
+            <div class="content">
+                <div class="name">Ndi Kelvin</div>
+                <div class="des">Lear More Do More Be Better</div>
+                <div class="des">Backend Developer</div>
+                <button>see more</button>
+            </div>
+        </div>
+       
+        <div class="button">
+            <button class="prev">prev
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="next">next
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+   </div>
+   
+    
+
+
+    <script>
+        const $next =  document.querySelector('.next');
+        const $prev =  document.querySelector('.prev');
+
+        $next.addEventListener(
+            'click',
+            () => {
+                const items = document.querySelectorAll('.item');
+                document.querySelector('.slide').appendChild(items[0]);
+
+            },
+            
+        );
+
+        $prev.addEventListener(
+            'click',
+            () => {
+                const items = document.querySelectorAll('.item');
+                document.querySelector('.slide').prepend(items[items.length - 1]);
+            },
+        );
+    </script>
+   
+{%endblock content%}

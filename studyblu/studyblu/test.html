@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" placeholder="name" id="username" required>
+        <input type="password" name="password" id="password" placeholder="password">
+        <input type="password" name="password2" id="password2" placeholder="confirm password">
+        <button type="submit" id="submit">create</button>
+    </form>
+    <div id="users">
+        
+    </div>
+</body>
+<script>
+    const stored_users=[
+        {
+            name:'rahim',
+            password:'admin.06',
+            id:1
+        },
+        {
+            name:'mabel',
+            password:'admin.06',
+            id:2
+        },
+        {
+            name:'Ann',
+            password:'admin.06',
+            id:3
+        },
+        {
+            name:'boss',
+            password:'admin.06',
+            id:4
+        },
+        {
+            name:'angello',
+            password:'admin.06',
+            id:5
+        },
+        {
+            name:'zen',
+            password:'admin.06',
+            id:6
+        },
+        
+    ]
+    const all_users=[]
+
+    const form=document.getElementById('form')
+    const btn=document.getElementById('submit')
+    
+    const users_list=document.getElementById('users')
+
+    form.addEventListener('submit', async (e)=>{
+        const username=document.getElementById('username').value.trim()
+        const password=document.getElementById('password').value.trim()
+        const password2=document.getElementById('password2').value.trim()
+        e.preventDefault()
+        if(password!=password2){
+            alert('passwords do not match')
+        }
+        const getusers= await stored_users
+        const newuser={
+            name:username,
+            password:password,
+            id:`user${new Date()}`
+            
+        }
+        const check =getusers.find(user=>user.name === username)
+        if(check){
+            if(all_users.find(user=>user.name === username)){
+                alert('user exist')
+            }
+            else{
+            all_users.push(newuser)
+            console.log(all_users)
+            }
+        }
+        else{
+            alert('your name was not foun in the database')
+            console.log(username, password)
+            console.log('ample user', getusers)
+        }
+        
+
+all_users.forEach(user=>{
+        const div=document.createElement('ul')
+        div.innerHTML=`
+            <ol>
+                <li>${user.name}</li>
+                <li>${user.password}</li>
+                <li>${user.id}</li>
+            </ol>
+        `
+        users_list.appendChild(div)
+    })
+    })
+    
+    
+    
+</script>
+</html>

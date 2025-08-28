@@ -1,0 +1,363 @@
+{% extends "light/me.html" %}
+{% load static%}
+{%block content%}
+    <main class="profile-page layout layout--2">
+      <div class="container">
+        <!-- Room Start -->
+        <div class="room">
+          <div class="room__top">
+            <div class="room__topLeft">
+              <a href="{% url 'light-index' %}">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <title>arrow-left</title>
+                  <path
+                    d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z"
+                  ></path>
+                </svg>
+              </a>
+              <h3>Study Room</h3>
+              
+
+            </div>
+
+            <div class="room__topRight">
+              {% if request.user == room.host%}
+              <a href="{% url 'light-update-room' room.id %}">
+                <svg
+                  enable-background="new 0 0 24 24"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>edit</title>
+                  <g>
+                    <path d="m23.5 22h-15c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h15c.276 0 .5.224.5.5s-.224.5-.5.5z" />
+                  </g>
+                  <g>
+                    <g>
+                      <path
+                        d="m2.5 22c-.131 0-.259-.052-.354-.146-.123-.123-.173-.3-.133-.468l1.09-4.625c.021-.09.067-.173.133-.239l14.143-14.143c.565-.566 1.554-.566 2.121 0l2.121 2.121c.283.283.439.66.439 1.061s-.156.778-.439 1.061l-14.142 14.141c-.065.066-.148.112-.239.133l-4.625 1.09c-.038.01-.077.014-.115.014zm1.544-4.873-.872 3.7 3.7-.872 14.042-14.041c.095-.095.146-.22.146-.354 0-.133-.052-.259-.146-.354l-2.121-2.121c-.19-.189-.518-.189-.707 0zm3.081 3.283h.01z"
+                      />
+                    </g>
+                    <g>
+                      <path
+                        d="m17.889 10.146c-.128 0-.256-.049-.354-.146l-3.535-3.536c-.195-.195-.195-.512 0-.707s.512-.195.707 0l3.536 3.536c.195.195.195.512 0 .707-.098.098-.226.146-.354.146z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </a>
+                  
+              <a href="{% url 'light-delete-room' room.id %}">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <title>remove</title>
+                  <path
+                    d="M27.314 6.019l-1.333-1.333-9.98 9.981-9.981-9.981-1.333 1.333 9.981 9.981-9.981 9.98 1.333 1.333 9.981-9.98 9.98 9.98 1.333-1.333-9.98-9.98 9.98-9.981z"
+                  ></path>
+                </svg>
+              </a>
+              
+              {%endif%}
+            </div>
+
+            {% comment %} <button class="action-button" data-id="120" data-delete-url="https://randomuser.me/api/3324923"
+            data-edit-url="profile.html">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+              <title>ellipsis-horizontal</title>
+              <path
+                d="M16 7.843c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 1.98c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z">
+              </path>
+              <path
+                d="M16 19.908c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 14.046c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z">
+              </path>
+              <path
+                d="M16 31.974c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 26.111c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z">
+              </path>
+            </svg>
+          </button>  {% endcomment %}
+          </div>
+          <div class="room__box scroll">
+            <div class="room__header scroll">
+              <div class="room__info">
+                <h3>{{room.topic}} - {{room.title}}</h3>
+                {%for message in messages%}
+                <span style="color:green;">{{message}}</span>
+                {%endfor%}
+                <span>Room created on {{room.created }}</span>
+                
+              </div>
+              <div class="room__hosted">
+                <p>Hosted By</p>
+                {%if request.user.is_authenticated%}
+                <a href="{% url 'light-profile-page' room.host.id %}" class="room__author">
+                  <div class="avatar avatar--small">
+                    <img src="{{room.host.avatar.url}}" />
+                  </div>
+                  <span>@{{room.host.username}} (room Admin)</span>
+                </a>
+                {%else%}
+                <div class="room__author">
+                  <div class="avatar avatar--small">
+                    <img src="{{room.host.avatar.url}}" />
+                  </div>
+                  <span>{{room.host.username}} (room Admin)</span>
+                </div>
+                {%endif%}
+              </div>
+              <div class="room__details">
+                {{room.description}}
+              </div>
+              {%if request.user.is_authenticated%}
+              <span class="room__topics">{{room.topic}}</span>
+              
+              
+                {%if request.user in participants%}
+                <div style="float:right;">
+                  <form action="" method="GET">
+                    {%csrf_token%}
+                    <button style="cursor:pointer;"  class="room__topics" type="submit" name="leave">leave room</button>
+                  </form>
+                </div>
+
+                {%if request.user == room.host%}
+              
+                {%endif%}
+                
+                {%else %}
+                <div style="float:right;">
+                  <form action="" method="GET" >
+                    {%csrf_token%}
+                    <button style="cursor:pointer;"  class="room__topics" type="submit" name="join">join room</button>
+                  </form>
+                </div>
+                <span class="room__topics"><b> Room Rules: </b>{{room.rules}}<br>
+                {%endif%}
+                
+              {%endif%}
+            </div>
+           
+            <div class="room__conversation" id="scrolling">
+              <div class="threads scroll" id="scroller">
+                {%for message in room_messages %}
+                <div class="thread">
+                  <div class="thread__top">
+                    <div class="thread__author">
+                      {%if request.user.is_authenticated%}
+                      <a href="{% url 'light-profile-page' message.user.id %}" class="thread__authorInfo">
+                        <div class="avatar avatar--small">
+                          <img src="{{message.user.avatar.url}}" />
+                        </div>
+                        <span>@{{message.user.username}}</span>
+                      </a>
+                      {%else%}
+                      <div class="thread__authorInfo">
+                        <div class="avatar avatar--small">
+                          <img src="{{message.user.avatar.url}}" />
+                        </div>
+                        <span>@{{message.user.username}}</span>
+                      </div>
+                      
+                      {%endif%}
+                    </div>
+                    {% if request.user == message.user%}
+                      {% if request.user != room.host%}
+                    <a href="{% url 'light-delete-message' message.id %}">
+                    <div class="thread__delete">
+                      
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <title>remove</title>
+                        <path
+                          d="M27.314 6.019l-1.333-1.333-9.98 9.981-9.981-9.981-1.333 1.333 9.981 9.981-9.981 9.98 1.333 1.333 9.981-9.98 9.98 9.98 1.333-1.333-9.98-9.98 9.98-9.981z"
+                        ></path>
+                      </svg>
+                      
+                    </div>
+                    </a>
+                    
+                    {%endif%}
+                      {%endif%}
+                      {% if request.user == room.host%}
+                      <a href="{% url 'light-delete-message' message.id %}">
+                        <div class="thread__delete">
+                          
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <title>remove</title>
+                            <path
+                              d="M27.314 6.019l-1.333-1.333-9.98 9.981-9.981-9.981-1.333 1.333 9.981 9.981-9.981 9.98 1.333 1.333 9.981-9.98 9.98 9.98 1.333-1.333-9.98-9.98 9.98-9.981z"
+                            ></path>
+                          </svg>
+                        </div>
+                        </a>
+                        
+                      {%endif%}
+                  </div>
+                  
+                  
+                    {% if message.image%}
+                    <a href="{{message.image.url}}">
+                     <img style='height:70%; width:70%;' src="{{message.image.url}}">
+                    </a><br>
+                    {%endif%}
+                    
+
+                    {% if message.files%}
+                    {{message.files}}
+                    {%if request.user.is_authenticated%}
+                    <a href="{{message.files.url}} " download>|downlod file</a>
+                    {%endif%}<br>
+                    {%endif%}
+
+                    
+                    
+                    
+                      
+
+                    <span class="room__topics">{{message.body}}</span>{%if request.user.is_authenticated%}  <a href="#body"><button data-message-id="{{message.id}}" style="background-color:transparent; border:none; color:skyblue; cursor:pointer;" id="body">↩ reply </button></a>{%endif%}<br>
+                    {{message.created.time }} 
+                    
+                    
+                  
+                </div>
+               {%endfor%}
+              </div>
+              
+            </div>
+            <script>
+              const conversationThread = document.getElementById("scroller");
+              if (conversationThread) conversationThread.scrollTop = conversationThread.scrollHeight;
+
+              var container = document.getElementById("scrolling");
+                container.scrollTop = container.scrollHeight;
+            </script>
+          </div>
+          <style>
+            .input-group{
+              align-items:stretch;
+              display:flex;
+              flex-wrap:wrap;
+              position:relative;
+              width:100%;
+              
+            }
+            .input-group .form-control .input-group .form-select{
+              flex:1 1 auto;
+              min-width:0;
+              position:relative;
+              width:1%;
+            }
+            .input-group.form-control:focus .input-group .form-select:focus{z-index:3}.input-group .btn{position:relative;z-index:2}.input-group .btn:focus{z-index:3}.input-group-text{align-items:center;background-color:#e9eaf1;border:2px solid #efeff5;border-radius:.5rem;color:#abb0c1;display:flex;font-size:1rem;font-weight:400;line-height:1.5;padding:.5rem 1.125rem;text-align:center;white-space:nowrap}.input-group-lg>.btn,.input-group-lg>.form-control,.input-group-lg>.form-select,.input-group-lg>.input-group-text{border-radius:.75rem;font-size:1rem;padding:.625rem 1.25rem}.input-group-sm>.btn,.input-group-sm>.form-control,.input-group-sm>.form-select,.input-group-sm>.input-group-text{border-radius:.375rem;font-size:.875rem;padding:.375rem .75rem}.input-group-lg>.form-select,.input-group-sm>.form-select{padding-right:4.5rem}.input-group.has-validation>.dropdown-toggle:nth-last-child(n+4),.input-group.has-validation>:nth-last-child(n+3):not(.dropdown-toggle):not(.dropdown-menu),.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu){border-bottom-right-radius:0;border-top-right-radius:0}.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){border-bottom-left-radius:0;border-top-left-radius:0;margin-left:-2px}
+          </style>
+          {% if request.user.is_authenticated %}
+            
+              <div class="room__message">
+                {%if request.user in participants %}
+                <form action="" method="POST" enctype="multipart/form-data">
+                  {%csrf_token%}
+                  <div class="input-group">
+                    
+                    <input class="btn"  id="files" style='width:1%;' type="file" name="image" value="image" >
+                    <input  class="btn" tab="body" id="body" style='width:50%;' type="text" name="body" placeholder="Write a message..." required />
+                    <input class="btn"  id="files" style='width:1%;' type="file" name="files" value="file" >
+                    
+                    {% comment %} <a class="btn" style='width:8%;' href="{% url 'light-send-image' room.id %}">image</a>
+                    <a  class="btn" style='width:8%;' href="{% url 'light-send-file' room.id%}">file</a> {% endcomment %}
+                    
+                    
+                      {% comment %} button{
+                        possition:absolute;
+                        height:4remimag
+                        color:
+                        
+                      }
+                      input{
+                        width:90%;
+                      } {% endcomment %}
+                   
+                    <button class="btn" type="submit">send</button>
+                  </div>
+                  
+                  
+                    
+                </form>
+                
+                {%endif%} 
+              </div>
+             
+              
+              
+          {%endif%}
+        </div>
+        <!-- Room End -->
+
+        <!--   Start -->
+        
+        <div class="participants">
+          
+          <h3 class="participants__top">Participants<span>( {{joined}} Joined + Admin )</span></h3>
+       
+          <div class="participants__list scroll">
+            
+            {% comment %} {%if request.user.is_authenticated%}
+            <a href="{% url 'light-profile-page' user.id %}" class="participant">
+              <div class="avatar avatar--medium">
+                <img src="{{room.host.avatar.url}}" />
+              </div>
+              <p>
+                {{room.host.username}} (room admin)
+                <span>@{{room.host.username}} </span>
+              </p>
+            </a>
+            {%else%}
+            <div class="participant">
+              <div class="avatar avatar--medium">
+                <img src="{{room.host.avatar.url}}" />
+              </div>
+              <p>
+                {{room.host.username}} (room admin)
+                <span>@{{room.host.username}}</span>
+              </p>
+            </div>
+            {%endif%}
+             {% endcomment %}
+            {%for user in participants%}
+            {%if request.user.is_authenticated%}
+            
+            <a href="{% url 'light-profile-page' user.id %}" class="participant">
+              <div class="avatar avatar--medium">
+                <img src="{{user.avatar.url}}" />
+              </div>
+              <p>
+                {{user.username}}
+                <span>@{{user.username}} {% if user == room.host%}
+                  (room admin){%endif%}</span>
+              </p>
+            </a>
+            
+            
+            
+            {%else%}
+            <div class="participant">
+              <div class="avatar avatar--medium">
+                <img src="{{user.avatar.url}}" />
+              </div>
+              <p>
+                {{user.username}}
+                <span>@{{user.username}}</span>
+              </p>
+            </div>
+            {%endif%}
+            {%endfor%}
+           
+
+          </div>
+          
+        </div>
+        
+        <!--  End -->
+      </div>
+    </main>
+    
+    <script src="{% static 'js/script.js'%}"></script>
+
+{%endblock content%}

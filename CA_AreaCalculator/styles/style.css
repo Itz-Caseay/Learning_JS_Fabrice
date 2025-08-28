@@ -39,7 +39,7 @@
     }
     input{
       width: 70%;
-      height: 25px;
+      height: 40px;
       padding: 10px;
       margin: 10px;
       border-radius: 50px;
@@ -52,7 +52,7 @@
     
     .shapes button{
       width: 50%;
-      height: 30px;
+      height: 40px;
       background: rgb(22, 23, 49);
       color: #fff;
       border: none;
@@ -96,6 +96,7 @@
       border: none;
       outline: none;
       border-radius: 3px;
+      margin: 5px;
       font-weight: 600;
       cursor: pointer;
     }

@@ -1,0 +1,65 @@
+
+  
+{%extends 'light/main.html'%}
+
+{% block content%}
+  {% if request.user.is_authenticated%}
+  {%if request.user == user%}
+  
+  <main class="profile-page layout layout--3">
+    <div class="container">
+      <!-- Topics Start -->
+      <main class="create-room layout">
+        <div class="container">
+          <div class="layout__box">
+            <div class="layout__boxHeader">
+              <div class="layout__boxTitle">
+                <a href="{{request.META.HTTP_REFERER}}">
+                  <svg
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                  >
+                    <title>arrow-left</title>
+                    <path
+                      d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z"
+                    ></path>
+                  </svg>
+                </a>
+                <h3>Acccount info</h3>
+              </div>
+            </div>
+            <div class="room__topics">
+              Name: {{user.name}}<br>
+              Email: {{user.email}}<br>
+              Username: {{user.username}}<br>
+              About: {{user.about}}<br>
+              Profile number: {{user.id}}<br>
+              Number of rooms created: {{db.count}}<br>
+              Messages send: {{room_messages.count}}<br>
+              Status: loggedin<br>
+              
+              
+              Password: {{user.password}}
+
+
+      
+      <!-- Topics End -->
+
+      <!-- Room List Start -->
+      
+
+      <!-- Activities Start -->
+      
+      <!-- Activities End -->
+    </div>
+  </main>
+  {%else%}
+  <h1 style="color:red; text-align:center;">you are not allowed here 🛑</h1>
+  {%endif%}
+  {%endif%}
+  
+
+{%endblock content%}
